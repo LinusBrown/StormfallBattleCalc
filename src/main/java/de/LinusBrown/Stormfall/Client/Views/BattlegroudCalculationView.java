@@ -6,9 +6,11 @@
 package de.LinusBrown.Stormfall.Client.Views;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
@@ -42,27 +44,51 @@ public class BattlegroudCalculationView extends GridPane{
 
         stylePane();
         
+        styleTextFields();
+        
         styleButtons();
+        
+        
+        
+        loadImages();
         
         addComponents();
     }
     
     private void stylePane(){
-        setGridLinesVisible(true);
+//        setGridLinesVisible(true);
         setHgap(10);
         setVgap(10);
         setPadding(new Insets(10,20,10,20));
+    }
+    
+    private void styleTextFields(){
+        int maxWithTextField = 60;
+        txtMarennon.setMaxWidth(maxWithTextField);
+        txtOger.setMaxWidth(maxWithTextField);
+        txtOrk.setMaxWidth(maxWithTextField);
+        txtOrk2.setMaxWidth(maxWithTextField);
+        
+        txtMarennon.setAlignment(Pos.CENTER_RIGHT);
+        txtOger.setAlignment(Pos.CENTER_RIGHT);
+        txtOrk.setAlignment(Pos.CENTER_RIGHT);
+        txtOrk2.setAlignment(Pos.CENTER_RIGHT);
     }
     
     private void styleButtons(){
         btnCalculate.setMaxWidth(Double.MAX_VALUE);
     }
     
-    
+    private void loadImages(){
+        imgMarennenon.setImage(new Image("Marennon.png"));
+        imgOrk.setImage(new Image("Orc.png"));
+        imgOrk2.setImage(new Image("OrcMarrauder.png"));
+        imgOger.setImage(new Image("Oger.png"));
+    }
     
     
     private void addComponents(){
-        add(lblTop, 0, 0, 2,2);
+        add(lblTop, 0, 0, 4,1);
         
         add(imgMarennenon, 0,2);
         add(lblMarennon, 1, 2);
@@ -71,6 +97,7 @@ public class BattlegroudCalculationView extends GridPane{
         add(imgOrk, 0, 3);
         add(lblOrk, 1, 3);
         add(txtOrk, 2, 3);
+        
         
         add(imgOrk2, 0, 4);
         add(lblOrk2, 1, 4);
