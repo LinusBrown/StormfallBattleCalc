@@ -15,17 +15,22 @@ import javafx.stage.Stage;
  * @author Maik
  */
 public class GuiClient extends Application{
-
+    public static final String appTitle = "Stormfall Helper";
+    public static final String appVersion = "0.0.1";
+    
     public static void main(String[] args){
         launch(args);
     }
     
     @Override
     public void start(Stage stage) throws Exception {
-        Pane viewPane = new Pane();
-        Scene scene = new Scene(viewPane);
-        stage.setScene(scene);
+        GuiObject gui = new GuiObject();
+        gui.getScene();
+        
+        stage.setTitle(String.format("%s - v%s", appTitle, appVersion));
+        stage.setScene(gui.getScene());
+        stage.setResizable(false);
         stage.show();
     }
-    
+        
 }
